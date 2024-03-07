@@ -1,82 +1,100 @@
 package com.fdmgroup.climaterrc.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
-
+@Entity
+@Component
 @Table(name="Companies")
 public class Company {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "companygen")
+    @SequenceGenerator(name = "companygen", sequenceName = "company_seq", allocationSize = 1)
+    @Column(name="company_id")
+    private int companyId;
+
     @Column(name="name")
-    private String Name;
+    private String name;
     @Column(name="time_net_zero")
-    private int TimeToNetZero;
+    private int timeToNetZero;
     @Column(name="co2_emissions")
-    private double Co2Emissions;
+    private double co2Emissions;
     @Column(name="employee_number")
-    private int EmployeeNumber;
+    private int employeeNumber;
     @Column(name="totaled_score")
-    private double TotaledScore;
+    private double totaledScore;
 
 
-    public Company(String name, int timeToNetZero, double co2Emissions, int employeeNumber, double totaledScore) {
-        this.Name = name;
-        this.TimeToNetZero = timeToNetZero;
-        this.Co2Emissions = co2Emissions;
-        this.EmployeeNumber = employeeNumber;
-        this.TotaledScore = totaledScore;
+    public Company() {
+    }
+
+    public Company(int companyId, String name, int timeToNetZero, double co2Emissions, int employeeNumber, double totaledScore) {
+        this.companyId = companyId;
+        this.name = name;
+        this.timeToNetZero = timeToNetZero;
+        this.co2Emissions = co2Emissions;
+        this.employeeNumber = employeeNumber;
+        this.totaledScore = totaledScore;
+    }
+
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public int getTimeToNetZero() {
-        return TimeToNetZero;
+        return timeToNetZero;
     }
 
     public void setTimeToNetZero(int timeToNetZero) {
-        TimeToNetZero = timeToNetZero;
+        this.timeToNetZero = timeToNetZero;
     }
 
     public double getCo2Emissions() {
-        return Co2Emissions;
+        return co2Emissions;
     }
 
     public void setCo2Emissions(double co2Emissions) {
-        Co2Emissions = co2Emissions;
+        this.co2Emissions = co2Emissions;
     }
 
     public int getEmployeeNumber() {
-        return EmployeeNumber;
+        return employeeNumber;
     }
 
     public void setEmployeeNumber(int employeeNumber) {
-        EmployeeNumber = employeeNumber;
+        this.employeeNumber = employeeNumber;
     }
 
     public double getTotaledScore() {
-        return TotaledScore;
+        return totaledScore;
     }
 
     public void setTotaledScore(double totaledScore) {
-        TotaledScore = totaledScore;
+        this.totaledScore = totaledScore;
     }
 
     @Override
     public String toString() {
         return "Company{" +
-                "Name='" + Name + '\'' +
-                ", TimeToNetZero=" + TimeToNetZero +
-                ", Co2Emissions=" + Co2Emissions +
-                ", EmployeeNumber=" + EmployeeNumber +
-                ", TotaledScore=" + TotaledScore +
+                "companyId=" + companyId +
+                ", name='" + name + '\'' +
+                ", timeToNetZero=" + timeToNetZero +
+                ", co2Emissions=" + co2Emissions +
+                ", employeeNumber=" + employeeNumber +
+                ", totaledScore=" + totaledScore +
                 '}';
     }
 }

@@ -1,10 +1,6 @@
 package com.fdmgroup.climaterrc.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -16,65 +12,66 @@ public class User {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usergen")
     @SequenceGenerator(name = "usergen", sequenceName = "user_seq", allocationSize = 1)
     @Column(name="user_id")
-    private int customerid;
+    private int userId;
 
 
     @Column(name="user_name")
-    private String Name;
+    private String name;
     @Column(name="password")
-    private String Password;
+    private String password;
     @Column(name="email")
-    private String Email;
+    private String email;
 
     public User() {
     }
 
-    public User(int customerid, String name, String password, String email) {
-        this.customerid = customerid;
-        this.Name = name;
-        this.Password = password;
-        this.Email = email;
+
+    public User(int userId, String name, String password, String email) {
+        this.userId = userId;
+        this.name = name;
+        this.password = password;
+        this.email = email;
     }
 
-    public int getCustomerid() {
-        return customerid;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setCustomerid(int customerid) {
-        this.customerid = customerid;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "customerid=" + customerid +
-                ", Name='" + Name + '\'' +
-                ", Password='" + Password + '\'' +
-                ", Email='" + Email + '\'' +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
