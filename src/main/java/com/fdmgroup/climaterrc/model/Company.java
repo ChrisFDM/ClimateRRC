@@ -5,24 +5,24 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-@Table(name="Companies")
+@Table(name="Company")
 public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "companygen")
     @SequenceGenerator(name = "companygen", sequenceName = "company_seq", allocationSize = 1)
-    @Column(name="company_id")
+    @Column(name="companyId")
     private int companyId;
 
     @Column(name="name")
     private String name;
-    @Column(name="time_net_zero")
+    @Column(name="timeToNetZero")
     private int timeToNetZero;
-    @Column(name="co2_emissions")
+    @Column(name="co2Emissions")
     private double co2Emissions;
-    @Column(name="employee_number")
+    @Column(name="employeeNumber")
     private int employeeNumber;
-    @Column(name="totaled_score")
+    @Column(name="totaledScore")
     private double totaledScore;
 
 
