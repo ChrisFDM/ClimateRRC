@@ -15,7 +15,7 @@ public class Company {
     private int companyId;
 
     @Column(name="name")
-    private String name;
+    private String companyName;
     @Column(name="timeToNetZero")
     private int timeToNetZero;
     @Column(name="co2Emissions")
@@ -31,7 +31,7 @@ public class Company {
 
     public Company(int companyId, String name, int timeToNetZero, double co2Emissions, int employeeNumber, double totaledScore) {
         this.companyId = companyId;
-        this.name = name;
+        this.companyName = name;
         this.timeToNetZero = timeToNetZero;
         this.co2Emissions = co2Emissions;
         this.employeeNumber = employeeNumber;
@@ -46,12 +46,12 @@ public class Company {
         this.companyId = companyId;
     }
 
-    public String getName() {
-        return name;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public int getTimeToNetZero() {
@@ -90,7 +90,7 @@ public class Company {
     public String toString() {
         return "Company{" +
                 "companyId=" + companyId +
-                ", name='" + name + '\'' +
+                ", name='" + companyName + '\'' +
                 ", timeToNetZero=" + timeToNetZero +
                 ", co2Emissions=" + co2Emissions +
                 ", employeeNumber=" + employeeNumber +
