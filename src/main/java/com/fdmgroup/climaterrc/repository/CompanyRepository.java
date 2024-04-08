@@ -12,5 +12,6 @@ import java.util.Optional;
 public interface CompanyRepository extends R2dbcRepository<Company, String> {
 
     Optional<Company> findByCompanyName(String name);
+    void deleteByCompanyName(String name);
 
 }

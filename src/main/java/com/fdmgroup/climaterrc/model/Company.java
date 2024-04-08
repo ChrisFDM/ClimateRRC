@@ -14,6 +14,7 @@ public class Company {
     @Column(name="companyId")
     private int companyId;
 
+
     @Column(name="name")
     private String companyName;
     @Column(name="timeToNetZero")
@@ -29,8 +30,16 @@ public class Company {
     public Company() {
     }
 
-    public Company(int companyId, String name, int timeToNetZero, double co2Emissions, int employeeNumber, double totaledScore) {
-        this.companyId = companyId;
+//    public Company(int companyId, String name, int timeToNetZero, double co2Emissions, int employeeNumber, double totaledScore) {
+//        this.companyId = companyId;
+//        this.companyName = name;
+//        this.timeToNetZero = timeToNetZero;
+//        this.co2Emissions = co2Emissions;
+//        this.employeeNumber = employeeNumber;
+//        this.totaledScore = totaledScore;
+//    }
+
+    public Company(String name, int timeToNetZero, double co2Emissions, int employeeNumber, double totaledScore) {
         this.companyName = name;
         this.timeToNetZero = timeToNetZero;
         this.co2Emissions = co2Emissions;
