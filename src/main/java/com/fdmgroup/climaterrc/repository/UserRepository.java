@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface UserRepository extends R2dbcRepository<User, String> {
 
     Optional<User> findByUsername(String username);
+    void deleteByUsername(String username);
 
 }
