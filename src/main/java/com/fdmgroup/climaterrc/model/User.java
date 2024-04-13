@@ -1,20 +1,18 @@
 package com.fdmgroup.climaterrc.model;
 
-import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+
+
 @Entity
-@Component
-@Table(name="User")
+@Table(name="users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usergen")
-    @SequenceGenerator(name = "usergen", sequenceName = "user_seq", allocationSize = 1)
-    @Column(name="userId")
-    private int userId;
-
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="user_id")
+    private long userId;
     @Column(name="name")
     private String name;
     @Column(name = "username")
@@ -24,29 +22,14 @@ public class User {
     @Column(name="email")
     private String email;
 
-    public User() {
-    }
+    @Column(name="enabled")
+    private boolean enabled;
 
-//    public User(int userId, String name, String username, String password, String email) {
-//        this.userId = userId;
-//        this.name = name;
-//        this.username = username;
-//        this.password = password;
-//        this.email = email;
-//    }
-
-    public User(String name, String username, String password, String email) {
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
-
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -82,14 +65,24 @@ public class User {
         this.email = email;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+
     @Override
     public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", name='" + name + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        final StringBuffer sb = new StringBuffer("User{");
+        sb.append("userId=").append(userId);
+        sb.append(", name=").append(name).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append(", enabled='").append(enabled).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

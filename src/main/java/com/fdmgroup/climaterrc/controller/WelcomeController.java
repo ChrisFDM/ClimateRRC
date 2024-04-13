@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class WelcomeController {
 
     @GetMapping("/")
-    public String main(Model model) {
-        return "welcome";
+    public String getHome(Model model) {
+        return "index";
+    }
+
+    @GetMapping("/login")
+    public String getLogin() {
+        return "login";
     }
 
 }
