@@ -12,6 +12,7 @@ CREATE TABLE users(
                           name         varchar(64)  not null,
                           username varchar(64) not null,
                           password        varchar(64) not null,
-                          email        varchar(128)  not null
+                          email        varchar(128)  not null,
+                          enabled        varchar(12)  not null
 );
 
