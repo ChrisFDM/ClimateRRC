@@ -13,23 +13,23 @@ public class CompanyController {
 
     private CompanyRepository companyRepo;
 
-//    @GetMapping("/companies")
-//    public String companies() {
-//        return "companies";
-//    }
-//
-//    @GetMapping("/deleteCompanies")
-//    public String deleteCompanies() {
-//        return "deleteCompanies";
-//    }
-//
-//    @GetMapping("/companyList")
-//    public String companyList(Model model) {
-//        Iterable<Company> listCompanies = (Iterable<Company>) companyRepo.findAll();
-//        model.addAttribute("listCompanies", listCompanies);
-//        return "companyList";
-//    }
-//
+    @GetMapping("/companies")
+    public String companies() {
+        return "companies";
+    }
+
+    @GetMapping("/deleteCompanies")
+    public String deleteCompanies() {
+        return "deleteCompanies";
+    }
+
+    @GetMapping("/companyList")
+    public String companyList(Model model) {
+        Iterable<Company> listCompanies = companyRepo.findAll();
+        model.addAttribute("listCompanies", listCompanies);
+        return "companyList";
+    }
+
 //    @GetMapping("/getCompany")
 //    public String getCompany(@RequestParam String name) {
 //        companyRepo.findByCompanyName(name);

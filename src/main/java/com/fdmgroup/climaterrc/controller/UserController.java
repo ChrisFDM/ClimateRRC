@@ -13,23 +13,23 @@ public class UserController {
 
     private UserRepository userRepository;
 
-//    @GetMapping("/users")
-//    public String users() {
-//        return "users";
-//    }
-//
-//    @GetMapping("/deleteUser")
-//    public String deleteUser() {
-//        return "deleteUser";
-//    }
-//
-//    @GetMapping("/userList")
-//    public String userList(Model model) {
-//        Iterable<User> listUser = (Iterable<User>) userRepository.findAll();
-//        model.addAttribute("listUsers", listUser);
-//        return "userList";
-//    }
-//
+    @GetMapping("/users")
+    public String users() {
+        return "users";
+    }
+
+    @GetMapping("/deleteUser")
+    public String deleteUser() {
+        return "deleteUser";
+    }
+
+    @GetMapping("/userList")
+    public String userList(Model model) {
+        Iterable<User> listUser = userRepository.findAll();
+        model.addAttribute("listUsers", listUser);
+        return "userList";
+    }
+
 //    @GetMapping("/getUser")
 //    public String getUser(@RequestParam String username) {
 //        userRepository.findByUsername(username);
