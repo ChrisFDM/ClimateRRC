@@ -1,0 +1,15 @@
+.sidebar {
+  width: 220px;
+}
+
+a.list-group-item:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.nav-component:hover {
+  cursor: pointer;
+}
+.nav-full-width {
+  width: 100%;
+}
