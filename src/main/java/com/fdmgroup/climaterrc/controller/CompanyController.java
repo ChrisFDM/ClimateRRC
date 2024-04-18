@@ -25,28 +25,28 @@ public class CompanyController {
 
     @GetMapping("/companyList")
     public String companyList(Model model) {
-        Iterable<Company> listCompanies = (Iterable<Company>) companyRepo.findAll();
+        Iterable<Company> listCompanies = companyRepo.findAll();
         model.addAttribute("listCompanies", listCompanies);
         return "companyList";
     }
 
-    @GetMapping("/getCompany")
-    public String getCompany(@RequestParam String name) {
-        companyRepo.findByCompanyName(name);
-        return "getCompany";
-    }
-
-    @PostMapping("/addCompany")
-    public String addCompany(@RequestParam String name, @RequestParam int timeToNetZero, @RequestParam double co2Emissions, @RequestParam int employeeNumber, @RequestParam double totaledScore) {
-        Company company = new Company(name, timeToNetZero, co2Emissions, employeeNumber, totaledScore);
-        companyRepo.save(company);
-        return "welcome";
-    }
-
-    @PostMapping("/deleteCompany")
-    public String deleteCompany(@RequestParam String name) {
-        companyRepo.deleteByCompanyName(name);
-        return "welcome";
-    }
+//    @GetMapping("/getCompany")
+//    public String getCompany(@RequestParam String name) {
+//        companyRepo.findByCompanyName(name);
+//        return "getCompany";
+//    }
+//
+//    @PostMapping("/addCompany")
+//    public String addCompany(@RequestParam String name, @RequestParam int timeToNetZero, @RequestParam double co2Emissions, @RequestParam int employeeNumber, @RequestParam double totaledScore) {
+//        Company company = new Company(name, timeToNetZero, co2Emissions, employeeNumber, totaledScore);
+//        companyRepo.save(company);
+//        return "welcome";
+//    }
+//
+//    @PostMapping("/deleteCompany")
+//    public String deleteCompany(@RequestParam String name) {
+//        companyRepo.deleteByCompanyName(name);
+//        return "welcome";
+//    }
 
 }

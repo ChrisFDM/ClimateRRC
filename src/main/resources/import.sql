@@ -1,4 +1,4 @@
-INSERT INTO Company (companyId, companyName, timeToNetZero, co2Emissions, employeeNumber, totaledScore) VALUES(product_seq.nextval, 'Test', 2099, 1000.5, 100, 79.3);
+INSERT INTO companies (name, timeToNetZero, co2Emissions, employeeNumber, totaledScore) values ('HSBC', 2038, 10987, 200, 79.5);
 
-INSERT INTO User (userId, name, username, password, email) VALUES(customer_seq.nextval, 'Chris', 'ChrisO', '1234', 'chriso@gmail.com');
+INSERT INTO users (name, username, password, email, enabled) VALUES('Chris', 'ChrisO', '{bcrypt}$2a$10$XlkdPQQhYcolx8bgp6nL3uNvDs8ZwDXA4KFaDencZsIhjMQO3j5lq', 'chriso@gmail.com', true);
 

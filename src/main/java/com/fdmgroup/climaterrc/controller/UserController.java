@@ -25,29 +25,29 @@ public class UserController {
 
     @GetMapping("/userList")
     public String userList(Model model) {
-        Iterable<User> listUser = (Iterable<User>) userRepository.findAll();
+        Iterable<User> listUser = userRepository.findAll();
         model.addAttribute("listUsers", listUser);
         return "userList";
     }
 
-    @GetMapping("/getUser")
-    public String getUser(@RequestParam String username) {
-        userRepository.findByUsername(username);
-        return "getUser";
-    }
-
-    @PostMapping("/addUser")
-    public String addUser(@RequestParam String name, @RequestParam String username, @RequestParam String password, @RequestParam String email) {
-        User user = new User(name, username, password, email);
-        userRepository.save(user);
-        return "welcome";
-    }
-
-    @PostMapping("/deleteUser")
-    public String removeUser(@RequestParam String username) {
-        userRepository.deleteByUsername(username);
-        return "welcome";
-    }
+//    @GetMapping("/getUser")
+//    public String getUser(@RequestParam String username) {
+//        userRepository.findByUsername(username);
+//        return "getUser";
+//    }
+//
+//    @PostMapping("/addUser")
+//    public String addUser(@RequestParam String name, @RequestParam String username, @RequestParam String password, @RequestParam String email) {
+//        User user = new User(name, username, password, email);
+//        userRepository.save(user);
+//        return "welcome";
+//    }
+//
+//    @PostMapping("/deleteUser")
+//    public String removeUser(@RequestParam String username) {
+//        userRepository.deleteByUsername(username);
+//        return "welcome";
+//    }
 
 
 
