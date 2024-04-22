@@ -2,7 +2,8 @@
 import React from "react";
 import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/collapse";
-import "./style.css";
+import "./styles.css";
+import White from "../src/white.png";
 
 function Nav({ Toggle }) {
   return (
@@ -31,9 +32,12 @@ function Nav({ Toggle }) {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              FDM
+              <img className="logo-image" src={White} alt="FDM Logo" />
             </a>
-            <div className="dropdown-menu" aria-labelledby="dropdownId">
+            <div
+              className="dropdown-menu dropdown-menu-custom"
+              aria-labelledby="dropdownId"
+            >
               <a className="dropdown-item" href="#">
                 Profile
               </a>

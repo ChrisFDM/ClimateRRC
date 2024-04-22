@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import "./style.css";
+import "./styles.css";
+import Logo from "../src/logo.png";
 
 function Sidebar() {
   return (
     <div className="bg-white sidebar p-2">
       <div className="m-2">
-        <i className="bi bi-bootstrap-fill me-3 fs-4"></i>
-        <span className="brand-name fs-4">FDM</span>
+        <img src={Logo} alt="FDM Logo" className="logo-image" />
       </div>
       <hr className="text-dark" />
       <div className="list-group list-group-flush">

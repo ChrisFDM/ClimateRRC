@@ -5,6 +5,8 @@ import Sidebar from "./Sidebar";
 import Home from "./Home";
 import { useState } from "react";
 import "./App.css";
+import Footer from "./Footer";
+import "./styles.css";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -12,17 +14,20 @@ function App() {
     setToggle(!toggle);
   };
   return (
-    <div className="container-fluid bg-white min-vh-100">
-      <div className="row">
-        {toggle && (
-          <div className="col-4 col-md-2 bg-white vh-100 position-fixed">
-            <Sidebar />
+    <div className="wrapper">
+      <div className="container-fluid bg-white min-vh-100 d-flex flex-column">
+        <div className="row flex-grow-1">
+          {toggle && (
+            <div className="col-4 col-md-2 bg-white vh-100 position-fixed">
+              <Sidebar />
+            </div>
+          )}
+          {toggle && <div className="col-4 col-md-2"></div>}
+          <div className="col d-flex flex-column">
+            <Home Toggle={Toggle} />
           </div>
-        )}
-        {toggle && <div className="col-4 col-md-2"></div>}
-        <div className="col">
-          <Home Toggle={Toggle} />
         </div>
+        <Footer className="footer" />
       </div>
     </div>
   );

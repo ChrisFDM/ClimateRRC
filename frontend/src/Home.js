@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
-import "./style.css";
+import "./styles.css";
+import CircularProgressCountUp from "./CircularProgressCountUp";
 
 import {
   BarChart,
@@ -42,24 +43,6 @@ function Home({ Toggle }) {
       pv: 3908,
       amt: 2000,
     },
-    {
-      name: "Company E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Company F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Company G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
   ];
 
   return (
@@ -70,37 +53,33 @@ function Home({ Toggle }) {
           <div className="col-md-3">
             <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
               <div>
-                <h3 className="fs-2">230 L</h3>
-                <p className="fs-5">Factor A</p>
+                <p className="fs-5">Company A</p>
+                <CircularProgressCountUp percentage={53} />
               </div>
-              <i className="bi bi-fuel-pump p-3 fs-1"></i>
             </div>
           </div>
           <div className="col-md-3">
             <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
               <div>
-                <h3 className="fs-2">400</h3>
-                <p className="fs-5">Factor B</p>
+                <p className="fs-5">Company B</p>
+                <CircularProgressCountUp percentage={71} />
               </div>
-              <i className="bi bi-person-exclamation p-3 fs-1"></i>
             </div>
           </div>
           <div className="col-md-3">
             <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
               <div>
-                <h3 className="fs-2">44%</h3>
-                <p className="fs-5">Factor C</p>
+                <p className="fs-5">Company C</p>
+                <CircularProgressCountUp percentage={39} />
               </div>
-              <i className="bi bi-battery-charging p-3 fs-1"></i>
             </div>
           </div>
           <div className="col-md-3">
             <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
               <div>
-                <h3 className="fs-2">3000</h3>
-                <p className="fs-5">Factor C</p>
+                <p className="fs-5">Company D</p>
+                <CircularProgressCountUp percentage={86} />
               </div>
-              <i className="bi bi-currency-dollar p-3 fs-1"></i>
             </div>
           </div>
         </div>
