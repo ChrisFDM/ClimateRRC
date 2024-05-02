@@ -47,20 +47,20 @@ a.list-group-item:hover {
   right: 0;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.row {
-  flex-grow: 1;
-}
-
-.footer {
-  position: fixed;
+.footer-container {
+  margin-top: 23vh;
+  padding-top: 23vh;
+  position: static;
   bottom: 0;
   width: 100%;
-  background-color: #f8f9fa;
-  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    margin-top: 5vh;
+    padding-top: 5vh;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+  }
 }

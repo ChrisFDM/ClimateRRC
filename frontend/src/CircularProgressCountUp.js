@@ -5,9 +5,12 @@ import Typography from "@mui/joy/Typography";
 import CircularProgress from "@mui/joy/CircularProgress";
 import { useCountUp } from "use-count-up";
 import PopupCard from "./PopupCard";
-import "./styles.css";
 
-export default function CircularProgressCountUp({ percentage }) {
+const CircularProgressCountUp = ({
+  percentage,
+  transitionalPopupCardContent,
+  physicalPopupCardContent,
+}) => {
   const { value: value2 } = useCountUp({
     isCounting: true,
     duration: 1,
@@ -15,14 +18,25 @@ export default function CircularProgressCountUp({ percentage }) {
     end: percentage,
   });
 
-  const [popupCardVisibility, setPopupCardVisibility] = React.useState(false);
+  const [transitionalPopupVisibility, setTransitionalPopupVisibility] =
+    React.useState(false);
+  const [physicalPopupVisibility, setPhysicalPopupVisibility] =
+    React.useState(false);
 
-  const handleOpenPopupCard = () => {
-    setPopupCardVisibility(true);
+  const handleOpenTransitionalPopup = () => {
+    setTransitionalPopupVisibility(true);
   };
 
-  const handleClosePopupCard = () => {
-    setPopupCardVisibility(false);
+  const handleCloseTransitionalPopup = () => {
+    setTransitionalPopupVisibility(false);
+  };
+
+  const handleOpenPhysicalPopup = () => {
+    setPhysicalPopupVisibility(true);
+  };
+
+  const handleClosePhysicalPopup = () => {
+    setPhysicalPopupVisibility(false);
   };
 
   return (
@@ -35,7 +49,7 @@ export default function CircularProgressCountUp({ percentage }) {
           size="sm"
           variant="outlined"
           color="neutral"
-          onClick={handleOpenPopupCard}
+          onClick={handleOpenTransitionalPopup}
         >
           Transitional Risks
         </Button>
@@ -43,12 +57,25 @@ export default function CircularProgressCountUp({ percentage }) {
           size="sm"
           variant="outlined"
           color="neutral"
-          onClick={handleOpenPopupCard}
+          onClick={handleOpenPhysicalPopup}
         >
           Physical Risks
         </Button>
       </Stack>
-      {popupCardVisibility && <PopupCard onClose={handleClosePopupCard} />}
+      {transitionalPopupVisibility && (
+        <PopupCard
+          onClose={handleCloseTransitionalPopup}
+          content={transitionalPopupCardContent}
+        />
+      )}
+      {physicalPopupVisibility && (
+        <PopupCard
+          onClose={handleClosePhysicalPopup}
+          content={physicalPopupCardContent}
+        />
+      )}
     </Stack>
   );
-}
+};
+
+export default CircularProgressCountUp;

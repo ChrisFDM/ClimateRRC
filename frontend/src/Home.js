@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import "./styles.css";
 import CircularProgressCountUp from "./CircularProgressCountUp";
+import { PieChart } from "@mui/x-charts/PieChart";
 
 import {
   BarChart,
@@ -17,6 +18,77 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+const createPopupContent = (data) => (
+  <PieChart
+    series={[
+      {
+        data,
+        highlightScope: { faded: "global", highlighted: "item" },
+        faded: { innerRadius: 30, additionalRadius: -30, color: "gray" },
+      },
+    ]}
+    height={200}
+  />
+);
+
+const companies = [
+  {
+    name: "Company A",
+    percentage: 53,
+    transitionalPopupCardContent: createPopupContent([
+      { id: 0, value: 61, label: "ESG Ratings" },
+      { id: 1, value: 11, label: "Greenwashing" },
+      { id: 2, value: 18, label: "No Investment" },
+    ]),
+    physicalPopupCardContent: createPopupContent([
+      { id: 0, value: 23, label: "ESG Ratings" },
+      { id: 1, value: 48, label: "Drought" },
+      { id: 2, value: 29, label: "Flooding" },
+    ]),
+  },
+  {
+    name: "Company B",
+    percentage: 71,
+    transitionalPopupCardContent: createPopupContent([
+      { id: 0, value: 45, label: "ESG Ratings" },
+      { id: 1, value: 30, label: "Greenwashing" },
+      { id: 2, value: 25, label: "No Investment" },
+    ]),
+    physicalPopupCardContent: createPopupContent([
+      { id: 0, value: 28, label: "ESG Ratings" },
+      { id: 1, value: 25, label: "Drought" },
+      { id: 2, value: 47, label: "Flooding" },
+    ]),
+  },
+  {
+    name: "Company C",
+    percentage: 39,
+    transitionalPopupCardContent: createPopupContent([
+      { id: 0, value: 30, label: "ESG Ratings" },
+      { id: 1, value: 20, label: "Greenwashing" },
+      { id: 2, value: 50, label: "No Investment" },
+    ]),
+    physicalPopupCardContent: createPopupContent([
+      { id: 0, value: 10, label: "ESG Ratings" },
+      { id: 1, value: 15, label: "Drought" },
+      { id: 2, value: 75, label: "Flooding" },
+    ]),
+  },
+  {
+    name: "Company D",
+    percentage: 86,
+    transitionalPopupCardContent: createPopupContent([
+      { id: 0, value: 40, label: "ESG Ratings" },
+      { id: 1, value: 50, label: "Greenwashing" },
+      { id: 2, value: 10, label: "No Investment" },
+    ]),
+    physicalPopupCardContent: createPopupContent([
+      { id: 0, value: 25, label: "ESG Ratings" },
+      { id: 1, value: 40, label: "Drought" },
+      { id: 2, value: 35, label: "Flooding" },
+    ]),
+  },
+];
 function Home({ Toggle }) {
   const data = [
     {
@@ -50,38 +122,22 @@ function Home({ Toggle }) {
       <Nav Toggle={Toggle} />
       <div className="container-fluid">
         <div className="row g-3 my-2">
-          <div className="col-md-3">
-            <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-              <div>
-                <p className="fs-5">Company A</p>
-                <CircularProgressCountUp percentage={53} />
+          {companies.map((company, index) => (
+            <div key={index} className="col-md-3">
+              <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                <div>
+                  <p className="fs-5">{company.name}</p>
+                  <CircularProgressCountUp
+                    percentage={company.percentage}
+                    transitionalPopupCardContent={
+                      company.transitionalPopupCardContent
+                    }
+                    physicalPopupCardContent={company.physicalPopupCardContent}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-md-3">
-            <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-              <div>
-                <p className="fs-5">Company B</p>
-                <CircularProgressCountUp percentage={71} />
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-              <div>
-                <p className="fs-5">Company C</p>
-                <CircularProgressCountUp percentage={39} />
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-              <div>
-                <p className="fs-5">Company D</p>
-                <CircularProgressCountUp percentage={86} />
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
