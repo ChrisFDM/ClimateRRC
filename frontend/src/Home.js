@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import "./styles.css";
 import CircularProgressCountUp from "./CircularProgressCountUp";
 import { PieChart } from "@mui/x-charts/PieChart";
+import Barclays from "./Barclays";
 
 import {
   BarChart,
@@ -74,20 +75,6 @@ const companies = [
       { id: 2, value: 75, label: "Flooding" },
     ]),
   },
-  {
-    name: "Company D",
-    percentage: 86,
-    transitionalPopupCardContent: createPopupContent([
-      { id: 0, value: 40, label: "ESG Ratings" },
-      { id: 1, value: 50, label: "Greenwashing" },
-      { id: 2, value: 10, label: "No Investment" },
-    ]),
-    physicalPopupCardContent: createPopupContent([
-      { id: 0, value: 25, label: "ESG Ratings" },
-      { id: 1, value: 40, label: "Drought" },
-      { id: 2, value: 35, label: "Flooding" },
-    ]),
-  },
 ];
 
 const lineData = [
@@ -136,10 +123,18 @@ function Home({ Toggle }) {
   return (
     <div className="px-3">
       <Nav Toggle={Toggle} />
+
       <div className="container-fluid">
-        <div className="row g-3 my-2">
+        <div className="row g-3 my-2 justify-content-center">
+          <div className="col-md-4">
+            <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+              <Barclays percentage={50} />
+            </div>
+          </div>
+        </div>
+        <div className="row g-3 my-2 justify-content-center">
           {companies.map((company, index) => (
-            <div key={index} className="col-md-3">
+            <div key={index} className="col-md-4">
               <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
                   <p className="fs-5">{company.name}</p>
