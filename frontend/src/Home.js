@@ -33,7 +33,7 @@ const createPopupContent = (data) => (
 
 const companies = [
   {
-    name: "Company A",
+    name: "Physical Climate Risk",
     percentage: 53,
     transitionalPopupCardContent: createPopupContent([
       { id: 0, value: 61, label: "ESG Ratings" },
@@ -47,7 +47,7 @@ const companies = [
     ]),
   },
   {
-    name: "Company B",
+    name: "Carbon Footprint",
     percentage: 71,
     transitionalPopupCardContent: createPopupContent([
       { id: 0, value: 45, label: "ESG Ratings" },
@@ -61,7 +61,7 @@ const companies = [
     ]),
   },
   {
-    name: "Company C",
+    name: "Supply Chain Risk",
     percentage: 39,
     transitionalPopupCardContent: createPopupContent([
       { id: 0, value: 30, label: "ESG Ratings" },
@@ -89,29 +89,45 @@ const companies = [
     ]),
   },
 ];
+
+const lineData = [
+  { name: "Jun", Score: 50 },
+  { name: "Jul", Score: 60 },
+  { name: "Aug", Score: 70 },
+  { name: "Sep", Score: 65 },
+  { name: "Oct", Score: 75 },
+  { name: "Nov", Score: 80 },
+  { name: "Dec", Score: 85 },
+  { name: "Jan", Score: 90 },
+  { name: "Feb", Score: 85 },
+  { name: "Mar", Score: 88 },
+  { name: "Apr", Score: 80 },
+  { name: "May", Score: 87 },
+];
+
 function Home({ Toggle }) {
   const data = [
     {
-      name: "Company A",
-      uv: 4000,
+      name: "UK",
+      Score: 70,
       pv: 2400,
       amt: 2400,
     },
     {
-      name: "Company B",
-      uv: 3000,
+      name: "Germany",
+      Score: 50,
       pv: 1398,
       amt: 2210,
     },
     {
-      name: "Company C",
-      uv: 2000,
+      name: "France",
+      Score: 20,
       pv: 9800,
       amt: 2290,
     },
     {
-      name: "Company D",
-      uv: 2780,
+      name: "Italy",
+      Score: 87,
       pv: 3908,
       amt: 2000,
     },
@@ -160,14 +176,9 @@ function Home({ Toggle }) {
             <Tooltip />
             <Legend />
             <Bar
-              dataKey="pv"
+              dataKey="Score"
               fill="#8884d8"
               activeBar={<Rectangle fill="pink" stroke="blue" />}
-            />
-            <Bar
-              dataKey="uv"
-              fill="#82ca9d"
-              activeBar={<Rectangle fill="gold" stroke="purple" />}
             />
           </BarChart>
         </ResponsiveContainer>
@@ -176,7 +187,7 @@ function Home({ Toggle }) {
           <LineChart
             width={500}
             height={300}
-            data={data}
+            data={lineData}
             margin={{
               top: 5,
               right: 30,
@@ -191,11 +202,10 @@ function Home({ Toggle }) {
             <Legend />
             <Line
               type="monotone"
-              dataKey="pv"
+              dataKey="Score"
               stroke="#8884d8"
               activeDot={{ r: 8 }}
             />
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
           </LineChart>
         </ResponsiveContainer>
       </div>
