@@ -1,55 +1,18 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import "bootstrap/js/dist/dropdown";
-import "bootstrap/js/dist/collapse";
-import "./styles.css";
 import White from "../src/white.png";
+import "./styles.css";
 
 function Nav({ Toggle }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark nav-full-height">
-      <i
-        className="navbar-brand bi bi-justify-left fs-4 nav-component"
-        onClick={Toggle}
-      ></i>
-      <button
-        className="navbar-toggler d-lg-none"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapsibleNavId"
-        aria-controls="collapsibleNavId"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      ></button>
-      <div className="collapse navbar-collapse" id="collapsibleNavId">
-        <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle text-white"
-              href="#"
-              id="dropdownId"
-              data-bs-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <img className="logo-image" src={White} alt="FDM Logo" />
-            </a>
-            <div
-              className="dropdown-menu dropdown-menu-custom"
-              aria-labelledby="dropdownId"
-            >
-              <a className="dropdown-item" href="#">
-                Profile
-              </a>
-              <a className="dropdown-item" href="#">
-                Settings
-              </a>
-              <a className="dropdown-item" href="#">
-                Logout
-              </a>
-            </div>
-          </li>
-        </ul>
+      <div className="container-fluid">
+        <i
+          className="navbar-brand bi bi-justify-left fs-4 nav-component"
+          onClick={Toggle}
+        ></i>
+        <div className="d-flex justify-content-end">
+          <img className="logo-image" src={White} alt="FDM Logo" />
+        </div>
       </div>
     </nav>
   );

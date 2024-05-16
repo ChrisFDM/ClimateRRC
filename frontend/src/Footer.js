@@ -9,7 +9,7 @@ const Footer = () => {
   const hoveredStyle = { color: "#007bff", transition: "color 0.2s" };
 
   return (
-    <div className="container">
+    <div className="container footer-container fixed-bottom">
       <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 mt-5 mb-1 border-top">
         <div className="col-md-4 d-flex align-items-center">
           <span className="text-muted">© 2024 FDM Group</span>

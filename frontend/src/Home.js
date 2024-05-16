@@ -128,7 +128,10 @@ function Home({ Toggle }) {
         <div className="row g-3 my-2 justify-content-center">
           <div className="col-md-4">
             <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-              <Barclays percentage={50} />
+              <div>
+                <p className="fs-3 center-text">Barclays</p>
+                <Barclays percentage={50} />
+              </div>
             </div>
           </div>
         </div>
@@ -137,7 +140,7 @@ function Home({ Toggle }) {
             <div key={index} className="col-md-4">
               <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div>
-                  <p className="fs-5">{company.name}</p>
+                  <p className="fs-5 center-text">{company.name}</p>
                   <CircularProgressCountUp
                     percentage={company.percentage}
                     transitionalPopupCardContent={

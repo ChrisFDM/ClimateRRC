@@ -3,6 +3,7 @@ import Stack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
 import CircularProgress from "@mui/joy/CircularProgress";
 import PopupCard from "./PopupCard";
+import "./styles.css";
 
 const Barclays = ({
   percentage,
@@ -34,9 +35,14 @@ const Barclays = ({
 
   return (
     <div className="barclays-container">
-      <Stack direction="row" alignItems="center" spacing={2}>
-        <CircularProgress size="lg" determinate value={value}>
-          <Typography>{value}%</Typography>
+      <Stack direction="column" alignItems="center" spacing={2}>
+        <CircularProgress
+          size="lg"
+          determinate
+          value={value}
+          sx={{ "--CircularProgress-size": "125px" }}
+        >
+          <Typography style={{ fontSize: "1.75rem" }}>{value}%</Typography>
         </CircularProgress>
         {transitionalPopupVisibility && (
           <PopupCard

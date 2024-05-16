@@ -10,27 +10,25 @@ import Footer from "./Footer";
 
 function App() {
   const [toggle, setToggle] = useState(false);
+
   const Toggle = () => {
     setToggle(!toggle);
   };
+
   return (
-    <div>
-      <div className="bg-white min-vh-100 d-flex flex-column">
-        <div className="row flex-grow-1">
-          {toggle && (
-            <div className="col-4 col-md-2 bg-white vh-100 position-fixed">
-              <Sidebar />
-            </div>
-          )}
-          {toggle && <div className="col-4 col-md-2"></div>}
-          <div className="col d-flex flex-column">
-            <Home Toggle={Toggle} />
-            <div className="footer-container">
-              <Footer />
-            </div>
+    <div className="min-vh-100 d-flex flex-column">
+      <div className="row flex-grow-1">
+        {toggle && (
+          <div className="col-4 col-md-2 bg-white vh-100 position-fixed">
+            <Sidebar />
           </div>
+        )}
+        {toggle && <div className="col-4 col-md-2"></div>}
+        <div className="col d-flex flex-column">
+          <Home Toggle={Toggle} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
