@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa";
+import "./styles.css";
 
 const Footer = () => {
   const [hoveredIcon, setHoveredIcon] = useState("");
@@ -10,7 +11,7 @@ const Footer = () => {
 
   return (
     <div className="container footer-container fixed-bottom">
-      <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 mt-5 mb-1 border-top">
+      <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 mt-5 mb-1 border-top-line">
         <div className="col-md-4 d-flex align-items-center">
           <span className="text-muted">© 2024 FDM Group</span>
         </div>
